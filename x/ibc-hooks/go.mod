@@ -127,6 +127,10 @@ require (
 	github.com/zondax/ledger-go v0.14.1 // indirect
 	go.etcd.io/bbolt v1.3.6 // indirect
 	go.opencensus.io v0.24.0 // indirect
+<<<<<<< HEAD
+=======
+	golang.org/x/arch v0.5.0 // indirect
+>>>>>>> 540c8c98 (refactor(osmoutils): remove redundant ctx param from DeleteAllKeysFromPrefix (#6510))
 	golang.org/x/crypto v0.12.0 // indirect
 	golang.org/x/exp v0.0.0-20230510235704-dd950f8aeaea // indirect
 	golang.org/x/net v0.14.0 // indirect
