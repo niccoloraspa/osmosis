@@ -1712,7 +1712,6 @@ func (s *decimalTestSuite) TestQuoRoundUp_MutativeAndNonMutative() {
 
 	for tcIndex, tc := range tests {
 		tc := tc
-
 		if tc.d2.IsZero() { // panic for divide by zero
 			s.Require().Panics(func() { tc.d1.QuoRoundUpMut(tc.d2) })
 		} else {
