@@ -591,7 +591,7 @@ func (d BigDec) Dec() Dec {
 	return copy.DecMut()
 }
 
-// Dec returns the Dec representation of a BigDec and mutates the receiver.
+// DecMut returns the Dec representation of a BigDec and mutates the receiver.
 // Values in any additional decimal places are truncated.
 func (d *BigDec) DecMut() Dec {
 	return d.DecWithPrecisionMut(PrecisionDec)
@@ -603,7 +603,7 @@ func (d *BigDec) DecMut() Dec {
 // precision: 4
 // Output Dec: 1.010100000000000000
 // Panics if precision exceeds PrecisionDec
-func (d BigDec) DecWithPrecision(precision uint64) Dec {
+func (d BigDec) DecWithPrecisionMut(precision uint64) Dec {
 	var precisionFactor *big.Int
 	if precision > PrecisionDec {
 		panic(fmt.Sprintf("maximum Dec precision is (%v), provided (%v)", PrecisionDec, precision))
@@ -625,7 +625,7 @@ func (d BigDec) DecWithPrecision(precision uint64) Dec {
 }
 
 // DecWithPrecision is a non-mutative version of DecWithPrecisionMut
-func (d BigDec) DecWithPrecision(precision int64) Dec {
+func (d BigDec) DecWithPrecision(precision uint64) Dec {
 	copy := d.Clone()
 	return copy.DecWithPrecisionMut(precision)
 }
