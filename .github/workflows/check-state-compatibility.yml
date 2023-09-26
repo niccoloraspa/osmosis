@@ -22,8 +22,8 @@ name: Check state compatibility
 #
 # DO NOT TRIGGER THIS WORKFLOW ON PUBLIC FORKS
 #
-# This workflow runs on a self-hosted runner and forks to this repository
-# can potentially run dangerous code on the self-hosted runner machine
+# This workflow runs on a ubuntu-latest runner and forks to this repository
+# can potentially run dangerous code on the ubuntu-latest runner machine
 # by creating a pull request that executes the code in a workflow.
 #
 # ******************************************************************************
@@ -50,7 +50,7 @@ jobs:
   compare_versions:
     # Compare current mainnet osmosis major version with the major version of github branch
     # Skip the next job if the current github major is greater than the current mainnet major
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     outputs:
       should_i_run: ${{ steps.compare_versions.outputs.should_i_run }}
       mainnet_major_version: ${{ steps.mainnet_version.outputs.mainnet_major_version }}
@@ -84,7 +84,7 @@ jobs:
     # DO NOT CHANGE THIS: please read the note above
     if: ${{ github.event.pull_request.head.repo.full_name == 'osmosis-labs/osmosis' && needs.compare_versions.outputs.should_i_run == 'true' }}
     needs: compare_versions
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
         uses: actions/checkout@v4
