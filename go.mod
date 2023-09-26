@@ -1,6 +1,8 @@
 module github.com/osmosis-labs/osmosis/v19
 
+
 go 1.20
+
 
 require (
 	cosmossdk.io/errors v1.0.0

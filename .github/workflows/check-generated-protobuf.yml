@@ -1,6 +1,10 @@
-# Ensure that generated code is up-to-date.
-name: Generate protobuf code
+# Verify that generated protobuf code is up-to-date.
+#
+# Note that we run these checks regardless whether the input files have
+# changed, because generated code can change in response to toolchain updates
+# even if no files in the repository are modified.
 
+name: Check generated protobuf code
 on:
   workflow_dispatch:
   pull_request:
@@ -23,7 +27,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  check-proto:
+  check-generated-protobuf:
     runs-on: ubuntu-latest
     steps:
       - 
