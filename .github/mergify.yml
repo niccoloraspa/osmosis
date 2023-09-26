@@ -49,8 +49,6 @@ pull_request_rules:
       queue:
         name: default
         method: squash
-        # Allowing this
-        allow_merging_configuration_change: true
         commit_message_template: |
           {{ title }} (#{{ number }})
           {{ body }}
